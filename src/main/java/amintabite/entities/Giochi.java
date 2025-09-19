@@ -84,4 +84,15 @@ public class Giochi {
     public void setGenere(Genere nuovoGenere) {
 
     }
+
+    public void setNgiocatori(int sceltagiocatorigdt2) {
+
+    }
+
+            public void setDurataMgame(int int mediaminutigdt2 int mediaminutigdt2) {
+    }
+
+    public int getDurataMgame() {
+        return durataMgame;
+    }
 }

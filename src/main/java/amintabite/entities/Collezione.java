@@ -199,20 +199,9 @@ public class Collezione {
                 Long idsearch = scanner.nextLong();
                 scanner.nextLine();
 
-                boolean found = false;
-
-                for (Giochi g : Catalogo) {
-
-                    if (g.getIdGioco().equals(idsearch)) {
-
-                        System.out.println("gioco trovato" + g.toString());
-
-                    } else {
-                        System.out.println("gioco non trovato... riprova");
-                    }
-
-                    break;
-                }
+                Catalogo.stream()
+                        .filter(g -> g.getIdGioco().equals(idsearch))
+                        .forEach(g -> System.out.println("Gioco trovato: " + g.toString()));
 
 
             }
@@ -364,27 +353,33 @@ public class Collezione {
                         scanner.nextLine();
                         System.out.println("anno pubblicazione");
                         int annogdt2 = scanner.nextInt();
-                        
+                        gioco.setPublishedin(annogdt2);
 
+
+                        scanner.nextLine();
                         System.out.println("inserisci prezzo");
                         double pricegdt2 = scanner.nextDouble();
+                        gioco.setPrice(pricegdt2);
+
                         scanner.nextLine();
-
-
                         System.out.println("inserire numero giocatori min 2- max 10");
                         int sceltagiocatorigdt2 = scanner.nextInt();
 
+
                         if (sceltagiocatorigdt2 < 2 | sceltagiocatorigdt2 > 10) {
                             System.out.println("Errore, impossibile giocare");
-                        } else sceltagiocatorigdt2 = scanner.nextInt();
+                        } else {
+                            gioco.setNgiocatori(sceltagiocatorigdt2);
+                        }
 
-
+                        scanner.nextLine();
                         System.out.println("inserire durata media in minuti");
                         int mediaminutigdt2 = scanner.nextInt();
 
+
                         if (mediaminutigdt2 < 5 | mediaminutigdt2 > 90) {
                             System.out.println("durata non disponibile");
-                        } else mediaminutigdt2 = scanner.nextInt();
+                        } else gioco.setDurataMgame(mediaminutigdt2);
 
                         System.out.println("aggiunta gioco...");
 
