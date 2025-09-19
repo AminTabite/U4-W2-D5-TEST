@@ -32,10 +32,6 @@ public class GdaTavolo extends Giochi {
         return durataMgame;
     }
 
-    public void setDurataMgame(int durataMgame) {
-        this.durataMgame = durataMgame;
-    }
-
 
     @Override
     public String toString() {

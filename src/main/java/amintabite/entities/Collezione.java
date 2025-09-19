@@ -57,6 +57,7 @@ public class Collezione {
 
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("collaudo lista" + Catalogo.toString());
 
         System.out.println("inserisci l' operazione da svolgere sul catalogo 1-7 , 8 per uscire ");
         int scelta = scanner.nextInt();
@@ -127,7 +128,7 @@ public class Collezione {
                         System.out.println("aggiunta gioco...");
                         Videogiochi giocoaggiunto = new Videogiochi(titolo, anno, price, piattaforma, oresc, genere);
 
-                        giocoaggiunto.toString();
+                        System.out.println("il gioco aggiunto e'" + giocoaggiunto.toString());
 
                         if (Catalogo.stream().anyMatch(Vg -> Vg.getIdGioco().equals(giocoaggiunto.getIdGioco()))) {
                             System.out.println("impossibile aggiungere gioco con stesso id");
@@ -171,6 +172,8 @@ public class Collezione {
                         System.out.println("aggiunta gioco...");
 
                         GdaTavolo neogiocodatavolo = new GdaTavolo(titolo, anno, price, sceltagiocatori, mediaminuti);
+
+                        System.out.println("il gioco aggiunto e'" + neogiocodatavolo.toString());
 
                         neogiocodatavolo.toString();
 
@@ -255,7 +258,8 @@ public class Collezione {
 
                 System.out.println("gioco rimosso correttamente");
 
-                Catalogo.toString();
+
+                System.out.println("lista aggiornata" + Catalogo.toString());
 
 
             }

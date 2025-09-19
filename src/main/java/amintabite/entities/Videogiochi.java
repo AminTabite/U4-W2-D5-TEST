@@ -39,7 +39,7 @@ public class Videogiochi extends Giochi {
         return genere;
     }
 
-    public void setGenere(Piattaforma genere) {
+    public void setGenere() {
         this.genere = genere;
     }
 

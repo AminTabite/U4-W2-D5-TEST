@@ -81,7 +81,7 @@ public class Giochi {
         this.randomId = randomId;
     }
 
-    public void setGenere(Genere nuovoGenere) {
+    public void setGenere(Piattaforma genere) {
 
     }
 
@@ -89,10 +89,10 @@ public class Giochi {
 
     }
 
-            public void setDurataMgame(int int mediaminutigdt2 int mediaminutigdt2) {
+
+    public void setDurataMgame(int mediaminutigdt2) {
     }
 
-    public int getDurataMgame() {
-        return durataMgame;
+    public void setGenere(Genere nuovoGenere) {
     }
 }
