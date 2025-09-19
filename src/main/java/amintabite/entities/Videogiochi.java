@@ -23,12 +23,24 @@ public class Videogiochi extends Giochi {
         return piattaforma;
     }
 
+    public void setPiattaforma(Piattaforma piattaforma) {
+        this.piattaforma = piattaforma;
+    }
+
     public int getOre() {
         return ore;
     }
 
+    public void setOre(int ore) {
+        this.ore = ore;
+    }
+
     public Genere getGenere() {
         return genere;
+    }
+
+    public void setGenere(Piattaforma genere) {
+        this.genere = genere;
     }
 
     @Override

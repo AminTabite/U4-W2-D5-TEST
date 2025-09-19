@@ -38,16 +38,32 @@ public class Giochi {
         return price;
     }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public Long getIdGioco() {
         return idGioco;
+    }
+
+    public void setIdGioco(Long idGioco) {
+        this.idGioco = idGioco;
     }
 
     public String getTitolo() {
         return titolo;
     }
 
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+
     public int getPublishedin() {
         return publishedin;
+    }
+
+    public void setPublishedin(int publishedin) {
+        this.publishedin = publishedin;
     }
 
     @Override
@@ -59,5 +75,13 @@ public class Giochi {
                 ", price=" + price +
                 ", randomId=" + randomId +
                 '}';
+    }
+
+    public void setRandomId(Supplier<Long> randomId) {
+        this.randomId = randomId;
+    }
+
+    public void setGenere(Genere nuovoGenere) {
+
     }
 }

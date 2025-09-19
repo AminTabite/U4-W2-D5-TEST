@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 
 public class Collezione {
@@ -270,7 +271,133 @@ public class Collezione {
 
             }
 
-            case 6 ->
+            case 6 -> {
+                System.out.println("Inserisci id dell' elemento da aggiornare ");
+
+                long updategame = scanner.nextLong();
+
+
+                Set<Giochi> foundGames = Catalogo.stream()
+                        .filter(giochi -> giochi.idGioco.equals(updategame))
+                        .collect(Collectors.toSet());
+
+                for (Giochi gioco : foundGames) {
+                    if (gioco instanceof Videogiochi) {
+
+                        scanner.nextLine();
+
+                        System.out.println("Inserisci titolo da modificare:");
+                        String titolo2 = scanner.nextLine();
+
+                        gioco.setTitolo(titolo2);
+
+
+                        scanner.nextLine();
+                        System.out.println("anno pubblicazione");
+                        int anno2 = scanner.nextInt();
+                        gioco.setPublishedin(anno2);
+
+                        scanner.nextLine();
+                        System.out.println("inserisci prezzo");
+                        double price2 = scanner.nextDouble();
+                        gioco.setPrice(price2);
+
+
+                        System.out.println("Inserisci piattaforma del gioco: 1=PC 2=XBOX 3=PS5");
+                        int sceltapiattaforma2 = scanner.nextInt();
+                        scanner.nextLine();
+
+                        Piattaforma nuovaPiattaforma = Piattaforma.PC;
+
+                        switch (sceltapiattaforma2) {
+                            case 1 -> nuovaPiattaforma = Piattaforma.PC;
+                            case 2 -> nuovaPiattaforma = Piattaforma.XBOX;
+                            case 3 -> nuovaPiattaforma = Piattaforma.PS5;
+                            default -> {
+                                System.out.println("Errore");
+                                break;
+                            }
+
+                        }
+
+                        ((Videogiochi) gioco).setGenere(nuovaPiattaforma);
+
+
+                        scanner.nextLine();
+                        System.out.println("inserisci ore");
+                        int ore2 = scanner.nextInt();
+                        ((Videogiochi) gioco).setOre(ore2);
+
+                        System.out.println("inserisci genere 1= action" +
+                                " 2= horror 3= fantasy 4= picchiaduro 5 shooter ");
+
+                        int sceltagenere = scanner.nextInt();
+                        scanner.nextLine();
+
+                        Genere nuovoGenere = Genere.ACTION;
+
+                        switch (sceltagenere) {
+                            case 1 -> nuovoGenere = Genere.ACTION;
+                            case 2 -> nuovoGenere = Genere.HORROR;
+                            case 3 -> nuovoGenere = Genere.FANTASY;
+                            case 4 -> nuovoGenere = Genere.PICCHIADURO;
+                            case 5 -> nuovoGenere = Genere.SHOOTER;
+                            default -> {
+                                System.out.println("Errore");
+                                nuovoGenere = Genere.ACTION;
+                            }
+                        }
+
+                        ((Videogiochi) gioco).setGenere(nuovoGenere);
+
+
+                        System.out.println("gioco modificato con successo!");
+                        gioco.toString();
+
+
+                    } else {
+                        scanner.nextLine();
+                        System.out.println("inserisci titolo");
+                        String titologdt2 = scanner.nextLine();
+                        gioco.setTitolo(titologdt2);
+
+                        scanner.nextLine();
+                        System.out.println("anno pubblicazione");
+                        int annogdt2 = scanner.nextInt();
+                        
+
+                        System.out.println("inserisci prezzo");
+                        double pricegdt2 = scanner.nextDouble();
+                        scanner.nextLine();
+
+
+                        System.out.println("inserire numero giocatori min 2- max 10");
+                        int sceltagiocatorigdt2 = scanner.nextInt();
+
+                        if (sceltagiocatorigdt2 < 2 | sceltagiocatorigdt2 > 10) {
+                            System.out.println("Errore, impossibile giocare");
+                        } else sceltagiocatorigdt2 = scanner.nextInt();
+
+
+                        System.out.println("inserire durata media in minuti");
+                        int mediaminutigdt2 = scanner.nextInt();
+
+                        if (mediaminutigdt2 < 5 | mediaminutigdt2 > 90) {
+                            System.out.println("durata non disponibile");
+                        } else mediaminutigdt2 = scanner.nextInt();
+
+                        System.out.println("aggiunta gioco...");
+
+
+                        System.out.println("gioco da tavolo modificato con successo");
+                        gioco.toString();
+
+
+                    }
+                }
+
+
+            }
 
 
         }

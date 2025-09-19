@@ -24,9 +24,18 @@ public class GdaTavolo extends Giochi {
         return ngiocatori;
     }
 
+    public void setNgiocatori(int ngiocatori) {
+        this.ngiocatori = ngiocatori;
+    }
+
     public int getDurataMgame() {
         return durataMgame;
     }
+
+    public void setDurataMgame(int durataMgame) {
+        this.durataMgame = durataMgame;
+    }
+
 
     @Override
     public String toString() {
