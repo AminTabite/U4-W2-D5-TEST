@@ -259,10 +259,18 @@ public class Collezione {
 
                 System.out.println("Inserire id del gioco da eliminare");
 
-                Long 
+                Long deleteid = scanner.nextLong();
+
+                Catalogo.removeIf(gioco -> gioco.getIdGioco().equals(deleteid));
+
+                System.out.println("gioco rimosso correttamente");
+
+                Catalogo.toString();
 
 
             }
+
+            case 6 ->
 
 
         }
