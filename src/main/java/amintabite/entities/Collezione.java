@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+
 public class Collezione {
     public static void main(String[] args) {
 
@@ -62,13 +63,135 @@ public class Collezione {
         switch (scelta) {
 
             case 1 -> {
+                System.out.println("inserire gioco 1= vgame 2 = gioco da tavolo");
+
+                int inseriscigioco = scanner.nextInt();
+
+                switch (inseriscigioco) {
+                    case 1 -> {
+
+                        System.out.println("inserisci titolo");
+                        String titolo = scanner.nextLine();
+                        scanner.nextLine();
+
+                        System.out.println("anno pubblicazione");
+                        int anno = scanner.nextInt();
+                        scanner.nextLine();
+
+                        System.out.println("inserisci prezzo");
+                        double price = scanner.nextDouble();
+                        scanner.nextLine();
+
+                        System.out.println(" inserisci piattaforma 1 = PC 2= XBOX 3 = PS5");
+                        int sceltaplant = scanner.nextInt();
+                        scanner.nextLine();
+
+                        Piattaforma piattaforma = Piattaforma.PC;
+                        switch (sceltaplant) {
+                            case 1 -> piattaforma = Piattaforma.PC;
+                            case 2 -> piattaforma = Piattaforma.XBOX;
+                            case 3 -> piattaforma = Piattaforma.PS5;
+                            default -> {
+                                System.out.println("Errore");
+                                break;
+                            }
+
+
+                        }
+
+                        System.out.println("inserisci ore");
+                        int oresc = scanner.nextInt();
+
+                        scanner.nextLine();
+
+                        System.out.println("inserisci genere 1= action 2= horror 3= fantasy 4= picchiaduro 5 shooter ");
+                        int sgenere = scanner.nextInt();
+
+                        Genere genere = Genere.ACTION;
+
+                        switch (sgenere) {
+
+                            case 1 -> genere = Genere.ACTION;
+                            case 2 -> genere = Genere.HORROR;
+                            case 3 -> genere = Genere.FANTASY;
+                            case 4 -> genere = Genere.PICCHIADURO;
+                            case 5 -> genere = Genere.SHOOTER;
+                            default -> {
+                                System.out.println("Errore");
+                                break;
+                            }
+
+                        }
+                        System.out.println("aggiunta gioco...");
+                        Videogiochi giocoaggiunto = new Videogiochi(titolo, anno, price, piattaforma, oresc, genere);
+
+                        giocoaggiunto.toString();
+
+                        if (Catalogo.stream().anyMatch(Vg -> Vg.getIdGioco().equals(giocoaggiunto.getIdGioco()))) {
+                            System.out.println("impossibile aggiungere gioco con stesso id");
+                        } else {
+                            System.out.println("gioco aggiunto!! :) ");
+                            Catalogo.add(giocoaggiunto);
+                        }
+                    }
+
+                    case 2 -> {
+
+
+                        System.out.println("inserisci titolo");
+                        String titolo = scanner.nextLine();
+                        scanner.nextLine();
+
+                        System.out.println("anno pubblicazione");
+                        int anno = scanner.nextInt();
+                        scanner.nextLine();
+
+                        System.out.println("inserisci prezzo");
+                        double price = scanner.nextDouble();
+                        scanner.nextLine();
+
+
+                        System.out.println("inserire numero giocatori min 2- max 10");
+                        int sceltagiocatori = scanner.nextInt();
+
+                        if (sceltagiocatori < 2 | sceltagiocatori > 10) {
+                            System.out.println("Errore, impossibile giocare");
+                        } else sceltagiocatori = scanner.nextInt();
+
+
+                        System.out.println("inserire durata media in minuti");
+                        int mediaminuti = scanner.nextInt();
+
+                        if (mediaminuti < 5 | mediaminuti > 90) {
+                            System.out.println("durata non disponibile");
+                        } else mediaminuti = scanner.nextInt();
+
+                        System.out.println("aggiunta gioco...");
+
+                        GdaTavolo neogiocodatavolo = new GdaTavolo(titolo, anno, price, sceltagiocatori, mediaminuti);
+
+                        neogiocodatavolo.toString();
+
+                        if (Catalogo.stream().anyMatch(gdt -> gdt.getIdGioco().equals(neogiocodatavolo.idGioco))) {
+                            System.out.println("impossibile aggiungere, id uguale");
+                        } else {
+                            System.out.println("gioco aggiunto correttamente");
+
+                            Catalogo.add(neogiocodatavolo);
+                        }
+
+
+                    }
+
+
+                }
 
 
                 break;
             }
 
             case 2 -> {
-
+              
 
                 break;
             }
