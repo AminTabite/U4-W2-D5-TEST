@@ -9,8 +9,8 @@ public class GdaTavolo extends Giochi {
 
 
     // costruttore
-    private GdaTavolo(Long idGioco, String titolo, int publishedin, double price, int ngiocatori, int durataMgame) {
-        super(idGioco, titolo, publishedin, price);
+    GdaTavolo(String titolo, int publishedin, double price, int ngiocatori, int durataMgame) {
+        super(titolo, publishedin, price);
 
         this.ngiocatori = ngiocatori;
         this.durataMgame = durataMgame;

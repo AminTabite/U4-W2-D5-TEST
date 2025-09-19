@@ -7,10 +7,10 @@ import java.util.function.Supplier;
 public class Giochi {
     //attributi
 
-    protected Long idGioco;
     protected String titolo;
     protected int publishedin;
     protected double price;
+    protected Long idGioco;
     Supplier<Long> randomId = () -> {
 
         Random rndm = new Random();
@@ -19,11 +19,12 @@ public class Giochi {
 
     };
 
+
     //metodi
 
 
     //costruttori
-    Giochi(Long idGioco, String titolo, int publishedin, double price) {
+    Giochi(String titolo, int publishedin, double price) {
 
 
         this.idGioco = randomId.get();

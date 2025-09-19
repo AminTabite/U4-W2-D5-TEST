@@ -5,4 +5,5 @@ public enum Genere {
     HORROR,
     FANTASY,
     PICCHIADURO,
+    SHOOTER,
 }

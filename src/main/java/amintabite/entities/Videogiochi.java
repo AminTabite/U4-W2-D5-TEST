@@ -9,8 +9,8 @@ public class Videogiochi extends Giochi {
     // metodi
 
     //costruttore
-    Videogiochi(Long idGioco, String titolo, int publishedin, double price, Piattaforma piattaforma, int ore, Genere genere) {
-        super(idGioco, titolo, publishedin, price);
+    Videogiochi(String titolo, int publishedin, double price, Piattaforma piattaforma, int ore, Genere genere) {
+        super(titolo, publishedin, price);
 
         this.piattaforma = piattaforma;
         this.ore = ore;
