@@ -1,6 +1,7 @@
 package amintabite.entities;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -191,54 +192,79 @@ public class Collezione {
             }
 
             case 2 -> {
-              
 
-                break;
+                System.out.println("Inserisci id del gioco che vuoi visualizzare");
+
+                Long idsearch = scanner.nextLong();
+                scanner.nextLine();
+
+                boolean found = false;
+
+                for (Giochi g : Catalogo) {
+
+                    if (g.getIdGioco().equals(idsearch)) {
+
+                        System.out.println("gioco trovato" + g.toString());
+
+                    } else {
+                        System.out.println("gioco non trovato... riprova");
+                    }
+
+                    break;
+                }
+
+
             }
-
 
             case 3 -> {
 
+                System.out.println("Inserisci budget:");
+                double prezzocompare = scanner.nextDouble();
+                scanner.nextLine();
 
-                break;
+                if (prezzocompare < 10) {
+                    System.out.println("Non hai abbastanza soldi");
+                } else {
+                    List<Giochi> giochilowerprice = Catalogo.stream()
+                            .filter(g -> g.getPrice() < prezzocompare)
+                            .toList();
+
+                    if (giochilowerprice.isEmpty()) {
+                        System.out.println("Nessun gioco sotto questo prezzo");
+                    } else {
+                        giochilowerprice.forEach(g -> System.out.println(g.toString()));
+                    }
+                }
             }
-
 
             case 4 -> {
 
+                System.out.println("cerca per numero di giocatori");
 
-                break;
+                int ngiocatori = scanner.nextInt();
+
+                if (ngiocatori < 2 && ngiocatori > 10) {
+                    System.out.println("troppi giocatori, errore");
+
+                }
+
+                Catalogo.stream().filter(giochi -> giochi instanceof GdaTavolo).filter
+                        (giochi -> ((GdaTavolo) giochi).getNgiocatori() == ngiocatori).forEach(
+                        giochi -> System.out.println("giochi disponibili :" + giochi.toString()));
+
+
             }
 
             case 5 -> {
 
+                System.out.println("Inserire id del gioco da eliminare");
 
-                break;
+                Long 
+
+
             }
 
-
-            case 6 -> {
-
-
-                break;
-            }
-
-
-            case 7 -> {
-
-
-                break;
-            }
-
-
-            case 8 -> {
-
-                return;
-
-            }
 
         }
-
-
     }
 }
